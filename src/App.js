@@ -1,7 +1,7 @@
 import React from "react";
-import LoginFormContainer from "./Components/LoginFormContainer";
 import { Provider } from "react-redux";
 import store from "./store";
+import LoginFormContainer from "./Components/LoginFormContainer";
 
 function App() {
   return (

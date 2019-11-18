@@ -2,6 +2,7 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import { login } from "../actions";
+import SignUpFormContainer from "./SignUpFormContainer";
 
 class LoginFormContainer extends React.Component {
   state = { email: "", password: "" };
@@ -18,14 +19,29 @@ class LoginFormContainer extends React.Component {
   };
 
   render() {
+    console.log("props loginfrom", this.props);
     return (
-      <LoginForm
-        onSubmit={this.onSubmit}
-        onChange={this.onChange}
-        values={this.state}
-      />
+      <div>
+        {!this.props.user ? (
+          <div>
+            <SignUpFormContainer />
+            <LoginForm
+              onSubmit={this.onSubmit}
+              onChange={this.onChange}
+              values={this.state}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     );
   }
 }
 
-export default connect(null, { login })(LoginFormContainer);
+const mapStateToProps = state => ({
+  user: state.user,
+  signup: state.signup
+});
+
+export default connect(mapStateToProps, { login })(LoginFormContainer);

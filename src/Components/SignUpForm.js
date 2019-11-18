@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 
-export default function LoginForm(props) {
+export default function SignUpForm(props) {
   return (
     <div className="Login">
       <form onSubmit={props.onSubmit}>
@@ -25,34 +25,9 @@ export default function LoginForm(props) {
           />
         </FormGroup>
         <Button block bssize="large" type="submit">
-          Login
+          SignUp
         </Button>
       </form>
     </div>
   );
-
-  //   =========================================
-  //   return (
-  //     <div>
-  //       <form onSubmit={props.onSubmit}>
-  //         <label>
-  //           Email:
-  //           <input
-  //             type="text"
-  //             name="email"
-  //             value={props.state}
-  //             onChange={props.onChange}
-  //           />
-  //           Password:
-  //           <input
-  //             type="text"
-  //             name="password"
-  //             value={props.state}
-  //             onChange={props.onChange}
-  //           />
-  //         </label>
-  //         <input type="submit" value="Submit" />
-  //       </form>
-  //     </div>
-  //   );
 }

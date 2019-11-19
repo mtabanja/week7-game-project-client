@@ -1,6 +1,7 @@
 import request from "superagent";
+import { url } from "./constants";
 
-const baseUrl = "http://localhost:4000";
+// const baseUrl = "http://localhost:4000";
 
 export const JWT = "JWT";
 
@@ -15,7 +16,7 @@ export const login = (email, password) => dispatch => {
   console.log("actions", email, password);
 
   request
-    .post(`${baseUrl}/login`)
+    .post(`${url}/login`)
     .send({ email, password })
     .then(response => {
       const action = userLogin(response.body.jwt);
@@ -37,7 +38,7 @@ export const SignUp = (email, password) => dispatch => {
   console.log("action", email, password);
 
   request
-    .post(`${baseUrl}/user`)
+    .post(`${url}/user`)
     .send({ email, password })
     .then(response => {
       const action = userSignUp(response.body);

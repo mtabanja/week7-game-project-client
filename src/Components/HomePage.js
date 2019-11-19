@@ -7,14 +7,14 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1>SIGN UP TO ENTER THE GAME LOBBY</h1>
+        <h1>SIGN UP TO ENTER THE LOBY</h1>
         <div>
           <SignUpFormContainer />
         </div>
 
         <div>
           {" "}
-          <p>Already Have An Account</p>
+          <p>Already Have An Account?</p>
           <Link to={"/signin"}>SIGN IN</Link>
         </div>
       </div>

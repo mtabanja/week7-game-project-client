@@ -12,11 +12,8 @@ class Rooms extends Component {
 
   componentDidMount = () => {
     this.stream.onmessage = event => {
-      console.log("event test:", event);
       const { data } = event;
-      console.log("data test:", data);
       const parsed = JSON.parse(data);
-
       this.props.dispatch(parsed);
     };
   };
@@ -24,27 +21,24 @@ class Rooms extends Component {
   onChange = event => {
     const { value } = event.target;
     this.setState({ value });
-    console.log("value", value);
   };
   onSubmit = async event => {
     // this.state = this.props.loadRooms();
     event.preventDefault();
     const name = this.state.value;
-    console.log("name", name);
 
     const url = await "http://localhost:4000/room";
     superagent
       .post(url)
+      .set("Authorization", `Bearer ${this.props.user}`)
       .send({ name: name })
-      .then(res => console.log("res", res));
+      .then(res => res);
   };
 
   reset = () => {
     this.setState({ value: "" });
   };
   render() {
-    const rooms = this.props.rooms;
-    console.log("this.props.rooms test:", rooms);
     const list = this.props.rooms ? (
       this.props.rooms.map((room, index) => (
         <p key={index}>
@@ -54,7 +48,7 @@ class Rooms extends Component {
     ) : (
       <p>"Loading...."</p>
     );
-    return (
+    const form = this.props.user ? (
       <div onSubmit={this.onSubmit}>
         <form>
           <input
@@ -69,12 +63,21 @@ class Rooms extends Component {
         </form>
         {list}
       </div>
+    ) : (
+      ""
+    );
+
+    return (
+      <div>
+        <Link to={"/form"}>{form}</Link>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  rooms: state.rooms
+  rooms: state.rooms,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Rooms);

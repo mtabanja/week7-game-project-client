@@ -67,11 +67,7 @@ class Rooms extends Component {
       ""
     );
 
-    return (
-      <div>
-        <Link to={"/form"}>{form}</Link>
-      </div>
-    );
+    return <div>{form}</div>;
   }
 }
 

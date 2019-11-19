@@ -2,6 +2,7 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import { login } from "../actions";
+import Rooms from "./Rooms";
 // import SignUpFormContainer from "./SignUpFormContainer";
 
 class LoginFormContainer extends React.Component {
@@ -22,13 +23,15 @@ class LoginFormContainer extends React.Component {
     console.log("props loginfrom", this.props);
     return (
       <div>
-        <div>
+        {!this.props.user ? (
           <LoginForm
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             values={this.state}
           />
-        </div>
+        ) : (
+          <Rooms />
+        )}
       </div>
     );
   }

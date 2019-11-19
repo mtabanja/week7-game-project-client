@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import { login } from "../actions";
-import Rooms from "./Rooms";
+import { Link } from "react-router-dom";
 // import SignUpFormContainer from "./SignUpFormContainer";
 
 class LoginFormContainer extends React.Component {
@@ -30,7 +30,7 @@ class LoginFormContainer extends React.Component {
             values={this.state}
           />
         ) : (
-          <Rooms />
+          <Link to={"/rooms"}>Go to rooms</Link>
         )}
       </div>
     );

@@ -5,17 +5,20 @@ import { Link } from "react-router-dom";
 
 class HomePage extends Component {
   render() {
+    const styling = { display: "table", margin: "auto", marginTop: 20 };
     return (
       <div>
-        <h1>SIGN UP TO ENTER THE LOBY</h1>
+        <h1 style={styling}>SIGN UP TO ENTER THE LOBY</h1>
         <div>
-          <SignUpFormContainer />
+          <SignUpFormContainer style={{ width: 10 }} />
         </div>
 
         <div>
           {" "}
-          <p>Already Have An Account?</p>
-          <Link to={"/signin"}>SIGN IN</Link>
+          <p style={styling}> Already Have An Account?</p>
+          <Link to={"/signin"} style={styling}>
+            SIGN IN
+          </Link>
         </div>
       </div>
     );

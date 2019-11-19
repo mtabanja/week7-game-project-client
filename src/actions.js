@@ -48,3 +48,10 @@ export const SignUp = (email, password) => dispatch => {
     })
     .catch(console.error);
 };
+
+// export const FETCH_DATA = "FETCH_DATA";
+
+// export const roomsFetched = payload => ({
+//   type: FETCH_DATA,
+//   payload
+// });

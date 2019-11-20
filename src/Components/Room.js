@@ -30,7 +30,7 @@ class Room extends Component {
       <div>
         <h1>{name}</h1>
         <button onClick={this.onClick}>Join</button>
-        <li>{list}</li>
+        {list}
       </div>
     );
   }

@@ -1,6 +1,10 @@
 import Rooms from "./Components/Rooms";
 import { connect } from "react-redux";
 import Room from "./Components/Room";
+import React from "react";
+import { Route } from "react-router-dom";
+import LoginFormContainer from "./Components/LoginFormContainer";
+import HomePage from "./Components/HomePage";
 
 class App extends React.Component {
   stream = new EventSource("http://localhost:4000/stream");

@@ -11,7 +11,7 @@ class Room extends Component {
     const response = await superagent.put(url).set({
       authorization: `Bearer ${this.props.user}`
     });
-    console.log("response test", response);
+    console.log("IGNORE IT:", response);
   };
   render() {
     const { name } = this.props.match.params;

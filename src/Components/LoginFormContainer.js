@@ -20,7 +20,6 @@ class LoginFormContainer extends React.Component {
   };
 
   render() {
-    console.log("props loginfrom", this.props);
     return (
       <div>
         {!this.props.user ? (

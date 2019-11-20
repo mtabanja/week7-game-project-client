@@ -17,12 +17,7 @@ export default function Quiz(props) {
           ))}
         </div>
       )}
-    </div>
-  );
-}
-
-{
-  /* {!props.ads ? (
+      {/* {!props.ads ? (
         "Loading..."
       ) : (
         <ul>
@@ -47,5 +42,7 @@ export default function Quiz(props) {
             );
           })}
         </ul>
-      )} */
+      )}  */}
+    </div>
+  );
 }

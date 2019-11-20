@@ -63,7 +63,6 @@ export const loadQuiz = () => (dispatch, getState) => {
   // a GET /ads request
   request(`${Url}/questions`)
     .then(response => {
-      console.log("response test", response.body);
       // dispatch an ADS_FETCHED action that contains the ads
       dispatch(quizFetched(response.body));
     })

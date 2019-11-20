@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import superagent from "superagent";
 import { Url } from "../constants";
+import QuizContainer from "./QuizContainer";
 
 class Room extends Component {
   onClick = async () => {
@@ -10,7 +11,7 @@ class Room extends Component {
     const response = await superagent.put(url).set({
       authorization: `Bearer ${this.props.user}`
     });
-    console.log("response test", response);
+    console.log("IGNORE IT:", response);
   };
   render() {
     const { name } = this.props.match.params;
@@ -32,6 +33,7 @@ class Room extends Component {
         <h1>{name}</h1>
         <button onClick={this.onClick}>Join</button>
         {list}
+        <QuizContainer />
       </div>
     );
   }

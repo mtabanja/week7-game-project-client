@@ -1,5 +1,5 @@
 import React from "react";
-import { loadQuiz } from "../actions/ads";
+import { loadQuiz } from "../actions";
 import { connect } from "react-redux";
 import Quiz from "./Quiz";
 
@@ -11,15 +11,14 @@ class QuizContainer extends React.Component {
   render() {
     return (
       <div className="quizlist">
-        <Quiz />
+        <Quiz quiz={this.props.quiz} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  ads: state.ads,
-  user: state.user
+  quiz: state.quiz
 });
 
 export default connect(mapStateToProps, { loadQuiz })(QuizContainer);

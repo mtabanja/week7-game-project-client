@@ -24,7 +24,7 @@ class Rooms extends Component {
       .post(url)
       .set("Authorization", `Bearer ${this.props.user}`)
       .send({ name: name })
-      .then(res => console.log("response", res));
+      .then(res => res);
   };
 
   reset = () => {

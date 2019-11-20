@@ -11,8 +11,6 @@ function userLogin(payload) {
 }
 
 export const login = (email, password) => dispatch => {
-  console.log("actions", email, password);
-
   request
     .post(`${Url}/login`)
     .send({ email, password })
@@ -33,15 +31,11 @@ function userSignUp(payload) {
 }
 
 export const SignUp = (email, password) => dispatch => {
-  console.log("action", email, password);
-
   request
     .post(`${Url}/user`)
     .send({ email, password })
     .then(response => {
       const action = userSignUp(response.body);
-      console.log("response", response.body);
-
       dispatch(action);
     })
     .catch(console.error);
@@ -67,8 +61,9 @@ export const loadQuiz = () => (dispatch, getState) => {
   if (getState().quiz) return;
 
   // a GET /ads request
-  request(`${url}/questions`)
+  request(`${Url}/questions`)
     .then(response => {
+      console.log("response test", response.body);
       // dispatch an ADS_FETCHED action that contains the ads
       dispatch(quizFetched(response.body));
     })

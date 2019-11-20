@@ -55,3 +55,24 @@ export const SignUp = (email, password) => dispatch => {
 //   type: FETCH_DATA,
 //   payload
 // });
+
+// fetching for displaying all the quiz
+export const QUIZ_FETCHED = "QUIZ_FETCHED";
+
+const quizFetched = questions => ({
+  type: QUIZ_FETCHED,
+  questions
+});
+
+export const loadQuiz = () => (dispatch, getState) => {
+  // when the state already contains ads, we don't fetch them again
+  if (getState().quiz) return;
+
+  // a GET /ads request
+  request(`${url}/questions`)
+    .then(response => {
+      // dispatch an ADS_FETCHED action that contains the ads
+      dispatch(quizFetched(response.body));
+    })
+    .catch(console.error);
+};

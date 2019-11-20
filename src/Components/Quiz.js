@@ -4,8 +4,26 @@ import React from "react";
 export default function Quiz(props) {
   return (
     <div className="quiz">
-      testing
-      {/* {!props.ads ? (
+      {!props.quiz ? (
+        "Loading"
+      ) : (
+        <div>
+          {props.quiz.map(question => (
+            <div key={question.id}>
+              <p>{question.name}</p>
+              {question.answers.map(answer => (
+                <li key={answer.id}>{answer.name}</li>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+{
+  /* {!props.ads ? (
         "Loading..."
       ) : (
         <ul>
@@ -30,7 +48,5 @@ export default function Quiz(props) {
             );
           })}
         </ul>
-      )} */}
-    </div>
-  );
+      )} */
 }

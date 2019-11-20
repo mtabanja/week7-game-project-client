@@ -67,7 +67,7 @@ export const loadQuiz = () => (dispatch, getState) => {
   if (getState().quiz) return;
 
   // a GET /ads request
-  request(`${url}/questions`)
+  request(`${Url}/questions`)
     .then(response => {
       // dispatch an ADS_FETCHED action that contains the ads
       dispatch(quizFetched(response.body));

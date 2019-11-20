@@ -23,8 +23,8 @@ class Rooms extends Component {
     await superagent
       .post(url)
       .set("Authorization", `Bearer ${this.props.user}`)
-      .send({ name: name })
-      .then(res => console.log("response", res));
+      .send({ name: name });
+    // .then(res => res.send);
   };
 
   reset = () => {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import superagent from "superagent";
 import { Url } from "../constants";
+import QuizContainer from "./QuizContainer";
 
 class Room extends Component {
   onClick = async () => {
@@ -32,6 +33,7 @@ class Room extends Component {
         <h1>{name}</h1>
         <button onClick={this.onClick}>Join</button>
         {list}
+        <QuizContainer />
       </div>
     );
   }

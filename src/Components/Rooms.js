@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import superagent from "superagent";
 import { Link } from "react-router-dom";
+import { Url } from "../constants";
 
 class Rooms extends Component {
   state = {
@@ -18,12 +19,12 @@ class Rooms extends Component {
     event.preventDefault();
     const name = this.state.value;
 
-    const url = await "http://localhost:4000/room";
-    superagent
+    const url = `${Url}/room`;
+    await superagent
       .post(url)
       .set("Authorization", `Bearer ${this.props.user}`)
       .send({ name: name })
-      .then(res => res);
+      .then(res => console.log("response", res));
   };
 
   reset = () => {

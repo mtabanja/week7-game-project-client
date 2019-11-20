@@ -9,6 +9,7 @@ class QuizContainer extends React.Component {
   }
 
   render() {
+    console.log("Hooooo", this.props.quiz);
     return (
       <div className="quizlist">
         <Quiz quiz={this.props.quiz} />

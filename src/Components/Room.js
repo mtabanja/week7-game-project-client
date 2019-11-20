@@ -14,13 +14,10 @@ class Room extends Component {
   render() {
     const { name } = this.props.match.params;
     const { rooms } = this.props;
-
-    console.log("nameeeee", rooms);
     const room = rooms.find(room => room.name === name);
     if (!room) {
       return "This room does not exist";
     }
-    console.log("room test", room);
     const { users } = room;
     const list =
       users && users.length ? (
@@ -43,4 +40,5 @@ const mapStateToProps = state => ({
   user: state.user,
   rooms: state.rooms
 });
+
 export default connect(mapStateToProps)(Room);

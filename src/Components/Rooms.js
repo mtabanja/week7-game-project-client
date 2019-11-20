@@ -4,18 +4,9 @@ import superagent from "superagent";
 import { Link } from "react-router-dom";
 
 class Rooms extends Component {
-  stream = new EventSource("http://localhost:4000/stream");
   state = {
     rooms: [],
     value: ""
-  };
-
-  componentDidMount = () => {
-    this.stream.onmessage = event => {
-      const { data } = event;
-      const parsed = JSON.parse(data);
-      this.props.dispatch(parsed);
-    };
   };
 
   onChange = event => {

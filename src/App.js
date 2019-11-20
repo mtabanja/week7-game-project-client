@@ -5,9 +5,10 @@ import React from "react";
 import { Route } from "react-router-dom";
 import LoginFormContainer from "./Components/LoginFormContainer";
 import HomePage from "./Components/HomePage";
+import { Url } from "./constants";
 
 class App extends React.Component {
-  stream = new EventSource("http://localhost:4000/stream");
+  stream = new EventSource(`${Url}/stream`);
   componentDidMount = () => {
     this.stream.onmessage = event => {
       const { data } = event;

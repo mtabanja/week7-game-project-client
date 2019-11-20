@@ -3,10 +3,13 @@ import { Button, FormGroup, FormControl } from "react-bootstrap";
 
 export default function LoginForm(props) {
   return (
-    <div className="Login">
+    <div
+      className="Login"
+      style={{ width: "50%", margin: "auto", marginTop: 20 }}
+    >
       <form onSubmit={props.onSubmit}>
         <FormGroup controlId="email" bssize="large">
-          <label>Email</label>
+          <label style={{ display: "table", margin: "auto" }}>Email</label>
           <FormControl
             autoFocus
             type="text"
@@ -16,7 +19,7 @@ export default function LoginForm(props) {
           />
         </FormGroup>
         <FormGroup controlId="password" bssize="large">
-          <label>Password</label>
+          <label style={{ display: "table", margin: "auto" }}>Password</label>
           <FormControl
             value={props.state}
             onChange={props.onChange}

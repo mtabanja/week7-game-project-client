@@ -1,7 +1,3 @@
-import React from "react";
-import LoginFormContainer from "./Components/LoginFormContainer";
-import { Route } from "react-router-dom";
-import HomePage from "./Components/HomePage";
 import Rooms from "./Components/Rooms";
 import { connect } from "react-redux";
 import Room from "./Components/Room";

@@ -10,7 +10,7 @@ class HomePage extends Component {
       <div>
         <h1 style={styling}>SIGN UP TO ENTER THE LOBY</h1>
         <div>
-          <SignUpFormContainer style={{ width: 10 }} />
+          <SignUpFormContainer />
         </div>
 
         <div>

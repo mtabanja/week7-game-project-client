@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import superagent from "superagent";
+import { Url } from "../constants";
 
 class Room extends Component {
   onClick = async () => {
     const { name } = this.props.match.params;
-    const url = `http://localhost:4000/join/${name}`;
+    const url = `${Url}/join/${name}`;
     const response = await superagent.put(url).set({
       authorization: `Bearer ${this.props.user}`
     });
@@ -30,7 +31,7 @@ class Room extends Component {
       <div>
         <h1>{name}</h1>
         <button onClick={this.onClick}>Join</button>
-        <li>{list}</li>
+        {list}
       </div>
     );
   }

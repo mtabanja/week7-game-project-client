@@ -6,25 +6,41 @@ class Room extends Component {
   onClick = async () => {
     const { name } = this.props.match.params;
     const url = `http://localhost:4000/join/${name}`;
-    const response = await superagent
-      .put(url)
-      .set("Authorization", `Bearer ${this.props.user}`);
+    const response = await superagent.put(url).set({
+      authorization: `Bearer ${this.props.user}`
+    });
     console.log("response test", response);
   };
   render() {
     const { name } = this.props.match.params;
+    const { rooms } = this.props;
 
-    console.log("nameeeee", name);
+    console.log("nameeeee", rooms);
+    const room = rooms.find(room => room.name === name);
+    if (!room) {
+      return "This room does not exist";
+    }
+    console.log("room test", room);
+    const { users } = room;
+    const list =
+      users && users.length ? (
+        users.map(user => <p key={user.email}>{user.email}</p>)
+      ) : (
+        <p>"This Room Has No User"</p>
+      );
+
     return (
       <div>
         <h1>{name}</h1>
-        <button onClick={this.onClick}>response</button>
+        <button onClick={this.onClick}>Join</button>
+        <li>{list}</li>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  rooms: state.rooms
 });
 export default connect(mapStateToProps)(Room);

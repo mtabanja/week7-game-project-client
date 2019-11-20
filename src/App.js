@@ -14,8 +14,9 @@ class App extends React.Component {
       const { data } = event;
       const parsed = JSON.parse(data);
       this.props.dispatch(parsed);
+      console.log("compDidmount:", parsed);
     };
-  };
+  }
   render() {
     return (
       <div>

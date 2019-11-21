@@ -68,3 +68,23 @@ export const loadQuiz = () => (dispatch, getState) => {
     })
     .catch(console.error);
 };
+
+// // adding 1 point
+// export const ADD_POINT = "ADD_POINT";
+
+// const addPointSuccess = newData => ({
+//   type: ADD_POINT,
+//   newData
+// });
+
+// export const addPoint = jwt => dispatch => {
+//   request
+//     .put(`${Url}/points`)
+//     .set({ authorization: `Bearer ${jwt}` })
+//     // .send(values)
+//     .then(response => {
+//       dispatch(addPointSuccess(response.body));
+//       // dispatch(loadAd(id));
+//     })
+//     .catch(console.error);
+// };

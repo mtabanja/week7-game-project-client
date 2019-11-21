@@ -30,9 +30,15 @@ class QuizContainer extends React.Component {
     }
   };
 
-  // winner = () => {
-
-  // }
+  winner = () => {
+    const userPoints = this.props.currentRoom.users.map(user => user.points);
+    const maxPoint = Math.max(...userPoints);
+    const winnerUser = this.props.currentRoom.users.find(
+      user => user.points === maxPoint
+    );
+    console.log("this is the winner user:", winnerUser.email);
+    return winnerUser.email;
+  };
 
   results = () => {
     if (this.state.submitted === false) {
@@ -41,6 +47,7 @@ class QuizContainer extends React.Component {
       this.setState({ submitted: false });
     }
     console.log("what is the local state?:", this.state.submitted);
+    this.winner();
   };
 
   render() {
@@ -55,7 +62,7 @@ class QuizContainer extends React.Component {
             results={this.results}
           />
         ) : (
-          <Results currentRoom={this.props.currentRoom} />
+          <Results currentRoom={this.props.currentRoom} winner={this.winner} />
         )}
       </div>
     );
@@ -64,7 +71,6 @@ class QuizContainer extends React.Component {
 
 const mapStateToProps = state => ({
   quiz: state.quiz,
-  points: state.points,
   rooms: state.rooms,
   jwt: state.user
 });

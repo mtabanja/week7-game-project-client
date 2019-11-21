@@ -14,6 +14,7 @@ class Room extends Component {
     console.log("IGNORE IT:", response);
   };
   render() {
+    console.log("WHAT IS MATCH PARAMS: ", this.props.match.params);
     const { name } = this.props.match.params;
     const { rooms } = this.props;
     const room = rooms.find(room => room.name === name);

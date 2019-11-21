@@ -24,7 +24,12 @@ class Room extends Component {
     const { users } = room;
     const list =
       users && users.length ? (
-        users.map(user => <p key={user.email}>{user.email}</p>)
+        users.map(user => (
+          <p key={user.email}>
+            {user.email}
+            {user.points}
+          </p>
+        ))
       ) : (
         <p>"This Room Has No User"</p>
       );
@@ -34,7 +39,7 @@ class Room extends Component {
         <h1>{name}</h1>
         <button onClick={this.onClick}>Join</button>
         {list}
-        <QuizContainer />
+        <QuizContainer currentRoom={room} />
       </div>
     );
   }

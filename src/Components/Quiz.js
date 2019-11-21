@@ -1,38 +1,6 @@
-// import React from "react";
-
-// export default function Quiz(props) {
-//   return (
-//     <div className="quiz">
-//       {!props.quiz ? (
-//         "Loading"
-//       ) : (
-//         <div>
-//           {props.quiz.map(question => (
-//             <div key={question.id}>
-//               <p>{question.name}</p>
-//               {question.answers.map(answer => (
-//                 <li key={answer.id}>{answer.name}</li>
-//               ))}
-//             </div>
-//           ))}
-//         </div>
-//       )}
-//       <p>Current point is: {props.points}</p>
-//       <button onClick={props.incrementPoint}>Point</button>
-//     </div>
-//   );
-// }
-
 import React from "react";
 
 export default function Quiz(props) {
-  // const joined = users
-  //     .some(user => user.name === ‘david’)
-  // const joined = props.rooms.map(room => room.users.some(user => user.email));
-  const username = props.rooms.map(room => room.users.map(user => user.email));
-  console.log("user:", username);
-  // const join = joined && <button onClick={props.onClick}>Join</button>;
-
   return (
     <div className="quiz">
       {!props.quiz ? (
@@ -61,6 +29,7 @@ export default function Quiz(props) {
               ))}
             </div>
           ))}
+          <button onClick={props.results}>Show the results</button>
         </div>
       )}
     </div>

@@ -4,15 +4,16 @@ import { connect } from "react-redux";
 import Quiz from "./Quiz";
 import superagent from "superagent";
 import { Url } from "../constants";
+import Results from "./Results";
 
 class QuizContainer extends React.Component {
+  state = { submitted: false };
+
   componentDidMount() {
     this.props.loadQuiz();
   }
 
   give = async answerId => {
-    //do we need to pass the jwt in the argument?
-    console.log("onclick clicked");
     const what = this.props.quiz.map(question => {
       const currentAnswer = question.answers.find(
         answer => answer.id === answerId
@@ -20,7 +21,6 @@ class QuizContainer extends React.Component {
       return currentAnswer;
     });
     const checkTrue = what.find(answer => answer);
-    console.log("checktrue is:", checkTrue);
     if (checkTrue.correct === "true") {
       const url = `${Url}/points`;
       const response = await superagent.put(url).set({
@@ -30,15 +30,33 @@ class QuizContainer extends React.Component {
     }
   };
 
+  // winner = () => {
+
+  // }
+
+  results = () => {
+    if (this.state.submitted === false) {
+      this.setState({ submitted: true });
+    } else {
+      this.setState({ submitted: false });
+    }
+    console.log("what is the local state?:", this.state.submitted);
+  };
+
   render() {
     return (
       <div className="quizlist">
-        <Quiz
-          quiz={this.props.quiz}
-          give={this.give}
-          points={this.props.points}
-          rooms={this.props.rooms}
-        />
+        {!this.state.submitted ? (
+          <Quiz
+            quiz={this.props.quiz}
+            give={this.give}
+            points={this.props.points}
+            rooms={this.props.rooms}
+            results={this.results}
+          />
+        ) : (
+          <Results currentRoom={this.props.currentRoom} />
+        )}
       </div>
     );
   }

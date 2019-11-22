@@ -5,7 +5,15 @@ import { Url } from "../constants";
 import QuizContainer from "./QuizContainer";
 
 class Room extends Component {
+  state = { joined: false };
+
   onClick = async () => {
+    if (!this.state.joined) {
+      this.setState({ joined: true });
+    } else {
+      this.setState({ joined: false });
+    }
+
     const { name } = this.props.match.params;
     const url = `${Url}/join/${name}`;
     const response = await superagent.put(url).set({
@@ -24,30 +32,29 @@ class Room extends Component {
     const { users } = room;
     const list =
       users && users.length ? (
-        users.map(user => (
-          <p key={user.email}>
-            {user.email}
-            {user.points}
-          </p>
-        ))
+        users.map(user => <p key={user.email}>{user.email}</p>)
       ) : (
         <p>"This Room Has No User"</p>
       );
 
-    // const fullRoomTrue =
-    //   users.length === 2 ? (
-    //     <QuizContainer currentRoom={room} />
-    //   ) : (
-    //     <p>Wait for the other player to begin the quiz!</p>
-    //   );
+    const fullRoomTrue =
+      users.length === 2 ? (
+        <QuizContainer currentRoom={room} />
+      ) : (
+        <p>Wait for the other player to begin the quiz!</p>
+      );
 
     return (
       <div>
-        <h1>{name}</h1>
-        <button onClick={this.onClick}>Join</button>
-        {list}
-        <QuizContainer currentRoom={room} />
-        {/* {fullRoomTrue} */}
+        <h1>You are in the room {name}.</h1>
+        {!this.state.joined ? (
+          <button onClick={this.onClick}>Join the Game</button>
+        ) : (
+          <div>
+            {list}
+            {fullRoomTrue}
+          </div>
+        )}
       </div>
     );
   }

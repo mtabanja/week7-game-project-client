@@ -5,7 +5,7 @@ export default class Navbar extends Component {
     return (
       <div>
         <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img
               src="/docs/4.3/assets/brand/bootstrap-solid.svg"
               width="30"

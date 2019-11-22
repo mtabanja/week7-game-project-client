@@ -1,4 +1,5 @@
 import React from "react";
+import { Spinner, Badge } from "react-bootstrap";
 
 export default function Results(props) {
   console.log(props.winner());
@@ -8,20 +9,29 @@ export default function Results(props) {
   const every = users.every(user => user.ready);
 
   if (!every) {
-    return <p>Wait for the other player to finish the quiz!</p>;
+    return (
+      <div>
+        <Spinner animation="border" variant="warning" />
+        <p>Wait for the other player to finish the quiz!</p>
+      </div>
+    );
   }
 
   return (
     <div className="results">
-      <h3>Results</h3>
+      <h1>Results</h1>
       {users.map(user => {
         return (
           <div key={user.id}>
-            <p>{user.email}</p>
+            <p>
+              {user.email} scored {user.points} points.
+            </p>
           </div>
         );
       })}
-      <p>Winner is:{props.winner()}</p>
+      <h2>
+        Winner is:<Badge variant="success">{props.winner()}</Badge>
+      </h2>
     </div>
   );
 }

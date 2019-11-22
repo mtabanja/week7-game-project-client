@@ -27,7 +27,7 @@ export default function SignUpForm(props) {
             type="text"
           />
         </FormGroup>
-        <Button block bssize="large" type="submit">
+        <Button block bssize="large" type="submit" className="buttons">
           SignUp
         </Button>
       </form>

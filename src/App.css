@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC:700|Nunito:700&display=swap");
+
 .div-btn {
   padding: 20px;
   background-color: rgb(218, 27, 27);
@@ -24,3 +26,18 @@
 /* .go-to-room-container:hover {
   color: black;
 } */
+.app {
+  font-family: "Amatic SC", cursive;
+  font-size: x-large;
+}
+.buttons {
+  font-family: "Nunito", sans-serif;
+}
+#buttons {
+  font-family: "Nunito", sans-serif;
+}
+.results {
+  align-self: auto;
+  padding: 0 40%;
+  float: center;
+}

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import superagent from "superagent";
 import { Url } from "../constants";
 import QuizContainer from "./QuizContainer";
+import { Spinner, Badge, Button, ListGroup } from "react-bootstrap";
 
 class Room extends Component {
   state = { joined: false };
@@ -32,7 +33,13 @@ class Room extends Component {
     const { users } = room;
     const list =
       users && users.length ? (
-        users.map(user => <p key={user.email}>{user.email}</p>)
+        users.map(user => {
+          return (
+            <ListGroup horizontal key={user.email}>
+              <ListGroup.Item>{user.email}</ListGroup.Item>
+            </ListGroup>
+          );
+        })
       ) : (
         <p>"This Room Has No User"</p>
       );
@@ -41,17 +48,29 @@ class Room extends Component {
       users.length === 2 ? (
         <QuizContainer currentRoom={room} />
       ) : (
-        <p>Wait for the other player to begin the quiz!</p>
+        <div>
+          <Spinner animation="border" variant="warning" />
+          <p>Wait for the other player to begin the quiz!</p>
+        </div>
       );
 
     return (
       <div>
-        <h1>You are in the room {name}.</h1>
+        <h1>
+          You are in the room <Badge variant="info">{name}</Badge> .
+        </h1>
         {!this.state.joined ? (
-          <button onClick={this.onClick}>Join the Game</button>
+          <Button variant="primary" onClick={this.onClick} className="buttons">
+            Join the Game
+          </Button>
         ) : (
           <div>
-            {list}
+            <div
+              className="row"
+              style={{ alignContent: "center", margin: "auto" }}
+            >
+              <h5>Users joined: {list}</h5>
+            </div>
             {fullRoomTrue}
           </div>
         )}

@@ -48,10 +48,10 @@ class Rooms extends Component {
             onChange={this.onChange}
             type="text"
           ></input>
-          <button onClick={this.reset} type="button">
+          <button onClick={this.reset} type="button" className="buttons">
             Reset
           </button>
-          <button>submit</button>
+          <button className="buttons">Submit</button>
         </form>
         {list}
       </div>

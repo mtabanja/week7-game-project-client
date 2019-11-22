@@ -23,31 +23,33 @@ class QuizContainer extends React.Component {
     const checkTrue = what.find(answer => answer);
     if (checkTrue.correct === "true") {
       const url = `${Url}/points`;
-      const response = await superagent.put(url).set({
+      await superagent.put(url).set({
         authorization: `Bearer ${this.props.jwt}`
       });
-      console.log("IGNORE IT:", response);
     }
   };
 
   winner = () => {
     const userPoints = this.props.currentRoom.users.map(user => user.points);
     const maxPoint = Math.max(...userPoints);
+    const safeMax = Math.max(0, maxPoint);
     const winnerUser = this.props.currentRoom.users.find(
-      user => user.points === maxPoint
+      user => user.points === safeMax
     );
-    console.log("this is the winner user:", winnerUser.email);
-    return winnerUser.email;
+    return winnerUser && winnerUser.email;
   };
 
-  results = () => {
-    if (this.state.submitted === false) {
+  results = async () => {
+    if (!this.state.submitted) {
       this.setState({ submitted: true });
     } else {
       this.setState({ submitted: false });
     }
-    console.log("what is the local state?:", this.state.submitted);
-    this.winner();
+
+    const url = `${Url}/ready`;
+    await superagent.put(url).set({
+      authorization: `Bearer ${this.props.jwt}`
+    });
   };
 
   render() {

@@ -3,7 +3,6 @@ import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import { login } from "../actions";
 import { Link } from "react-router-dom";
-// import SignUpFormContainer from "./SignUpFormContainer";
 
 class LoginFormContainer extends React.Component {
   state = { email: "", password: "" };
@@ -29,9 +28,30 @@ class LoginFormContainer extends React.Component {
             values={this.state}
           />
         ) : (
-          <Link to={"/rooms"}>
-            <button className="btn">Go to rooms</button>
-          </Link>
+          <div className="go-to-room-container">
+            <div
+              style={{
+                display: "table",
+                margin: "auto",
+                marginTop: 50,
+                marginBottom: 50
+              }}
+            >
+              GO TO ROOMS AND SELECT A ROOM TO START PLAYING
+            </div>
+
+            <div
+              style={{
+                display: "table",
+                margin: "auto"
+              }}
+              className="div-btn"
+            >
+              <Link className="link" to={"/rooms"}>
+                Go to rooms
+              </Link>
+            </div>
+          </div>
         )}
       </div>
     );

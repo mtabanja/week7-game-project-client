@@ -1,18 +1,26 @@
-.btn {
-  margin: auto;
-  width: 150px;
-  height: 50px;
-  background: rgba(49, 25, 81, 0.99);
-  border: solid 3px rgb(41, 40, 40);
-  border-radius: 100px;
+.div-btn {
+  padding: 20px;
+  background-color: rgb(218, 27, 27);
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: bold;
-  display: none;
-  transition: 1s;
-  font-family: sans-serif;
+  transition: 500ms;
+  border: solid 2px black;
 }
 
-.btn:hover {
-  border-color: rgb(102, 50, 138);
+.div-btn:hover {
+  background-color: rgb(0, 0, 0);
+  border: solid 2px white;
+}
+.div-btn .link {
+  text-decoration: none;
+
   color: white;
 }
+
+.go-to-room-container {
+  color: rgb(204, 194, 194);
+}
+
+/* .go-to-room-container:hover {
+  color: black;
+} */

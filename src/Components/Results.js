@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Results(props) {
-
   console.log(props.winner());
 
   const { users } = props.currentRoom;

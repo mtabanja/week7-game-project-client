@@ -19,6 +19,7 @@ export default function Quiz(props) {
                     <li className="list-group-item text-center border-0 ">
                       <button
                         className=" text-white btn btn-outline btn-block btn-dark"
+                        id="buttons"
                         onClick={() => props.give(answer.id)}
                       >
                         {answer.name}

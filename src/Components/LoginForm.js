@@ -27,7 +27,7 @@ export default function LoginForm(props) {
             type="text"
           />
         </FormGroup>
-        <Button block bssize="large" type="submit">
+        <Button block bssize="large" type="submit" className="buttons">
           Login
         </Button>
       </form>

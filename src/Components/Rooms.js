@@ -55,6 +55,7 @@ class Rooms extends Component {
       <p>"Loading...."</p>
     );
     const form = this.props.user ? (
+
       <div>
         <FormGroup>
           <form onSubmit={this.onSubmit}>
@@ -83,6 +84,7 @@ class Rooms extends Component {
         ) : (
           <p style={{ display: "table", margin: "auto" }}>ROOMS AVAILABLE</p>
         )}
+
         {list}
       </div>
     ) : (

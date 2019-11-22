@@ -32,7 +32,11 @@
   border: solid 2px black;
   margin-top: 10px;
   color: black;
-} 
+  font-family: sans-serif;
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+}
 .app {
   font-family: "Amatic SC", cursive;
   font-size: x-large;

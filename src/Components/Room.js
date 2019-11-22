@@ -33,21 +33,11 @@ class Room extends Component {
     const { users } = room;
     const list =
       users && users.length ? (
-
-        users.map(user => {
-          return (
-            <ListGroup horizontal key={user.email}>
-              <ListGroup.Item>{user.email}</ListGroup.Item>
-            </ListGroup>
-          );
-        })
-
         users.map(user => (
           <p style={{ display: "table", margin: "auto" }} key={user.email}>
             Player: {user.email}
           </p>
         ))
-
       ) : (
         <p>"This Room Has No User"</p>
       );
@@ -57,29 +47,35 @@ class Room extends Component {
         <QuizContainer currentRoom={room} />
       ) : (
         <div>
-          <Spinner animation="border" variant="warning" />
-          <p>Wait for the other player to begin the quiz!</p>
+          <Spinner
+            style={{ display: "table", margin: "auto" }}
+            animation="border"
+            variant="warning"
+          />
+          <p style={{ display: "table", margin: "auto" }}>
+            Wait for the other player to begin the quiz!
+          </p>
         </div>
       );
 
     return (
       <div>
-
         <h1 style={{ display: "table", margin: "auto" }}>
           You are in the room <Badge variant="info">{name}</Badge>.
-
         </h1>
         {!this.state.joined ? (
-          <Button variant="primary" onClick={this.onClick} className="buttons">
+          <Button
+            style={{ display: "table", margin: "auto", marginTop: 20 }}
+            variant="primary"
+            onClick={this.onClick}
+            className="buttons"
+          >
             Join the Game
           </Button>
         ) : (
           <div>
-            <div
-              className="row"
-              style={{ alignContent: "center", margin: "auto" }}
-            >
-              <h5>Users joined: {list}</h5>
+            <div className="row" style={{ display: "table", margin: "auto" }}>
+              <h5>{list}</h5>
             </div>
             {fullRoomTrue}
           </div>

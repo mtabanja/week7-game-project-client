@@ -34,12 +34,20 @@ class Room extends Component {
         <p>"This Room Has No User"</p>
       );
 
+    // const fullRoomTrue =
+    //   users.length === 2 ? (
+    //     <QuizContainer currentRoom={room} />
+    //   ) : (
+    //     <p>Wait for the other player to begin the quiz!</p>
+    //   );
+
     return (
       <div>
         <h1>{name}</h1>
         <button onClick={this.onClick}>Join</button>
         {list}
         <QuizContainer currentRoom={room} />
+        {/* {fullRoomTrue} */}
       </div>
     );
   }

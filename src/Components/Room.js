@@ -32,7 +32,11 @@ class Room extends Component {
     const { users } = room;
     const list =
       users && users.length ? (
-        users.map(user => <p key={user.email}>{user.email}</p>)
+        users.map(user => (
+          <p style={{ display: "table", margin: "auto" }} key={user.email}>
+            Player: {user.email}
+          </p>
+        ))
       ) : (
         <p>"This Room Has No User"</p>
       );
@@ -46,7 +50,9 @@ class Room extends Component {
 
     return (
       <div>
-        <h1>You are in the room {name}.</h1>
+        <h1 style={{ display: "table", margin: "auto" }}>
+          You are in the room {name}.
+        </h1>
         {!this.state.joined ? (
           <button onClick={this.onClick}>Join the Game</button>
         ) : (

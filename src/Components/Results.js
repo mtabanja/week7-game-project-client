@@ -1,10 +1,8 @@
 import React from "react";
 
 export default function Results(props) {
-  console.log(
-    "props",
-    props.currentRoom.map(room => room.users.map(user => user.points))
-  );
+  const userPoints = props.currentRoom.users.map(user => user.points);
+
   return (
     <div className="results">
       testing results
@@ -15,10 +13,7 @@ export default function Results(props) {
           </div>
         );
       })}
-      Winner is:
-      {props.currentRoom.map(room => room.users.map(user => user.points))
-        ? props.winner()
-        : "You Need To Play To See The Winner"}
+      Winner is: {props.winner()}
     </div>
   );
 }

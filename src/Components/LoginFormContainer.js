@@ -29,7 +29,9 @@ class LoginFormContainer extends React.Component {
             values={this.state}
           />
         ) : (
-          <Link to={"/rooms"}>Go to rooms</Link>
+          <Link to={"/rooms"}>
+            <button className="btn">Go to rooms</button>
+          </Link>
         )}
       </div>
     );

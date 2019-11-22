@@ -6,6 +6,8 @@ import { Route } from "react-router-dom";
 import LoginFormContainer from "./Components/LoginFormContainer";
 import HomePage from "./Components/HomePage";
 import { Url } from "./constants";
+import Navbar from "./Components/Navbar";
+import "./App.css";
 
 class App extends React.Component {
   stream = new EventSource(`${Url}/stream`);
@@ -19,6 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Route path="/" component={Navbar} />
         <Route path="/signin" component={LoginFormContainer} exact />
         <Route path="/" component={HomePage} exact />
         <Route path="/rooms" component={Rooms} exact />

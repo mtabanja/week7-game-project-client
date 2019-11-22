@@ -39,18 +39,21 @@ class LoginFormContainer extends React.Component {
             >
               GO TO ROOMS AND SELECT A ROOM TO START PLAYING
             </div>
-
-            <div
-              style={{
-                display: "table",
-                margin: "auto"
-              }}
-              className="div-btn"
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              className="link"
+              to={"/rooms"}
             >
-              <Link className="link" to={"/rooms"}>
+              <div
+                style={{
+                  display: "table",
+                  margin: "auto"
+                }}
+                className="div-btn"
+              >
                 Go to rooms
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         )}
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Results(props) {
+
   console.log(props.winner());
 
   const { users } = props.currentRoom;
@@ -18,7 +19,6 @@ export default function Results(props) {
         return (
           <div key={user.id}>
             <p>{user.email}</p>
-            <p>{user.points}</p>
           </div>
         );
       })}

@@ -9,16 +9,16 @@ export default function Quiz(props) {
         <div>
           {props.quiz.map(question => (
             <div
-              class="container text-center border border-dark border-1"
+              className="container text-center border border-dark border-1"
               key={question.id}
             >
-              <p class="col">{question.name}</p>
+              <p className="col">{question.name}</p>
               {question.answers.map(answer => (
                 <div key={answer.id}>
-                  <ul class="list-group ">
-                    <li class="list-group-item text-center border-0 ">
+                  <ul className="list-group ">
+                    <li className="list-group-item text-center border-0 ">
                       <button
-                        class=" text-white btn btn-outline btn-block btn-dark"
+                        className=" text-white btn btn-outline btn-block btn-dark"
                         onClick={() => props.give(answer.id)}
                       >
                         {answer.name}

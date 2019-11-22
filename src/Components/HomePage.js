@@ -8,7 +8,7 @@ class HomePage extends Component {
     const styling = { display: "table", margin: "auto", marginTop: 20 };
     return (
       <div>
-        <h1 style={styling}>SIGN UP TO ENTER THE LOBY</h1>
+        <h1 style={styling}>SIGN UP TO ENTER THE LOBBY</h1>
         <div>
           <SignUpFormContainer />
         </div>

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import superagent from "superagent";
 import { Url } from "../constants";
 import QuizContainer from "./QuizContainer";
-import { Spinner, Badge, Button, ListGroup } from "react-bootstrap";
+import { Spinner, Badge, Button } from "react-bootstrap";
 
 class Room extends Component {
   state = { joined: false };
@@ -35,7 +35,7 @@ class Room extends Component {
       users && users.length ? (
         users.map(user => (
           <p style={{ display: "table", margin: "auto" }} key={user.email}>
-            Player: {user.email}
+            Player: <Badge variant="info">{user.email}</Badge>
           </p>
         ))
       ) : (

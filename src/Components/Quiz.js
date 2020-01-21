@@ -30,7 +30,19 @@ export default function Quiz(props) {
               ))}
             </div>
           ))}
-          <button onClick={props.results}>Show the results</button>
+          <button
+            onClick={props.results}
+            style={{
+              display: "table",
+              margin: "auto",
+              marginTop: "5%",
+              marginBottom: "5%",
+              border: "5px solid black ",
+              borderRadius: "5%"
+            }}
+          >
+            Show the results
+          </button>
         </div>
       )}
     </div>

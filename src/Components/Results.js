@@ -10,8 +10,12 @@ export default function Results(props) {
 
   if (!every) {
     return (
-      <div>
-        <Spinner animation="border" variant="warning" />
+      <div style={{ display: "table", margin: "auto", marginTop: "5%" }}>
+        <Spinner
+          style={{ display: "table", margin: "auto" }}
+          animation="border"
+          variant="warning"
+        />
         <p>Wait for the other player to finish the quiz!</p>
       </div>
     );
@@ -22,7 +26,7 @@ export default function Results(props) {
       <h1>Results</h1>
       {users.map(user => {
         return (
-          <div key={user.id}>
+          <div id="result" key={user.id}>
             <p>
               {user.email} scored {user.points} points.
             </p>

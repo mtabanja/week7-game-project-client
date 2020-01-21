@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import superagent from "superagent";
 import { Link } from "react-router-dom";
 import { Url } from "../constants";
-import { Button, FormGroup, FormControl, Row } from "react-bootstrap";
+import { FormGroup, FormControl, Row } from "react-bootstrap";
 
 class Rooms extends Component {
   state = {
@@ -41,10 +41,7 @@ class Rooms extends Component {
               class="list-group-item d-flex justify-content-between "
             >
               {room.name}
-              <span
-                class="badge badge-primary badge-pill"
-                style={{ paddingTop: 5 }}
-              >
+              <span class="badge badge-in-rooms badge-primary">
                 Players Joined:{room.users.length}
               </span>
             </li>
@@ -55,7 +52,6 @@ class Rooms extends Component {
       <p>"Loading...."</p>
     );
     const form = this.props.user ? (
-
       <div>
         <FormGroup>
           <form onSubmit={this.onSubmit}>

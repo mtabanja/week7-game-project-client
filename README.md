@@ -1,6 +1,4 @@
-# Multiplayer Quiz game<pre> 
-
-
+# &nbsp; &nbsp; &nbsp; &nbsp; Multiplayer Quiz game <pre>
 
 
 ![GitHub Logo](https://i.ibb.co/z832fZW/Screen-Shot-2020-01-21-at-01-50-43.png)![GitHub Logo](https://i.ibb.co/FVwp0d7/Screen-Shot-2020-01-21-at-01-54-14.png)![GitHub Logo](https://i.ibb.co/x82V47t/Screen-Shot-2020-01-21-at-02-05-37.png)

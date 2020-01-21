@@ -1,5 +1,4 @@
-# Multiplayer Quiz game <pre> 
-
+# Multiplayer Quiz game<pre> 
 
 
 
@@ -24,7 +23,7 @@ We decided to build a quiz game that can be played by two players on different d
 
 ## Getting Started:
 
-1. Clone the git repository into a new directory on your computer: git clone git@github.com:mtabanja/week7-game-project-client.git
+1. Clone the git repository into a new directory on your computer: `git clone git@github.com:mtabanja/week7-game-project-client.git`
 2. Run npm i to install requird dependendencies
 3. Run npm start to start the app
 

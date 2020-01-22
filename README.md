@@ -18,7 +18,7 @@
 
 ## Introduction:
 
-For this project pairs of students were asked to produce a full-stack multiplayer game app using a React/Redux front-end with secure sign up and login functionality and a back-end with a database for user information and streaming technology to keep both players in sync.
+For this project pairs of students were asked to produce a full-stack multiplayer game using a React/Redux front-end with secure sign up and login functionality and a back-end with a database for user information and streaming technology to keep both players in sync.
 We decided to build a quiz game that can be played by two players on different devices. Each player has multiple questions to  answer, then clicks show result button. If the second player has not finished the quiz yet, the first player is told to wait. When both finish, players are told of the outcome and points are awarded. Streaming keeps both players up to date without the need for requests from the client.
 
 

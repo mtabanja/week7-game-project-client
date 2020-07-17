@@ -3,33 +3,41 @@ import { connect } from "react-redux";
 import superagent from "superagent";
 import { Link } from "react-router-dom";
 import { Url } from "../constants";
-import { FormGroup, FormControl, Row } from "react-bootstrap";
+import { FormGroup, Form, FormControl, Row } from "react-bootstrap";
 
 class Rooms extends Component {
   state = {
     rooms: [],
-    value: ""
+    value: "",
+    validated: false,
   };
 
-  onChange = event => {
+  onChange = (event) => {
     const { value } = event.target;
     this.setState({ value });
   };
-  onSubmit = async event => {
+  onSubmit = async (event) => {
     // this.state = this.props.loadRooms();
-    event.preventDefault();
-    const name = this.state.value;
 
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    this.setState({ validated: true });
+    event.preventDefault();
+
+    const name = this.state.value;
     const url = `${Url}/room`;
     await superagent
       .post(url)
       .set("Authorization", `Bearer ${this.props.user}`)
-      .send({ name: name });
+      .send({ name: name === "" ? null : name });
     // .then(res => res.send);
   };
 
   reset = () => {
-    this.setState({ value: "" });
+    this.setState({ value: null });
   };
   render() {
     const list = this.props.rooms ? (
@@ -53,28 +61,25 @@ class Rooms extends Component {
     );
     const form = this.props.user ? (
       <div>
-        <FormGroup>
-          <form onSubmit={this.onSubmit}>
+        <Form
+          noValidate
+          validated={this.state.validated}
+          onSubmit={this.onSubmit}
+        >
+          <FormGroup>
             <FormControl
               value={this.state.value}
               onChange={this.onChange}
               type="text"
               placeholder="Room Name"
+              required
               style={{ textAlign: "center", marginTop: 20 }}
             />
             <Row>
-              <button
-                className="  btn-primary btn-block"
-                onClick={this.reset}
-                type="button"
-              >
-                Reset Field
-              </button>
-
               <button className=" btn-primary btn-block">Add Room</button>
             </Row>
-          </form>
-        </FormGroup>
+          </FormGroup>
+        </Form>
         {this.props.rooms.length < 1 ? (
           <p style={{ display: "table", margin: "auto" }}>NO ROOMS YET</p>
         ) : (
@@ -91,9 +96,9 @@ class Rooms extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   rooms: state.rooms,
-  user: state.user
+  user: state.user,
 });
 
 export default connect(mapStateToProps)(Rooms);
